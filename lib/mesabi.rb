@@ -24,7 +24,7 @@ module Mesabi #:nodoc:
     
     def call(env)
       request = Request.new(env)
-      if (params = route_map.recognize(request.path_info))
+      if (params = route_map.recognize(request.path_info, request.request_method))
        request.params.merge!(params)
        controller = get_controller(params['controller']).new(request)
        controller.run(params['action'])

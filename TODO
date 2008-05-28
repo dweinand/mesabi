@@ -10,3 +10,8 @@
 -- Nested
 -- Restful
 --- Check HTTP Method
+- Error Handling
+- Logging
+- Sessions
+- Cookies
+- Caching

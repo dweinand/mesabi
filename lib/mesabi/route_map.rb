@@ -10,14 +10,12 @@ module Mesabi
     end
     
     def match(path, options={})
-      self.routes << Route.new(path, options)
+      self.routes << [nil, Route.new(path, options)]
     end
     
     def recognize(path)
       routes.each do |route|
-        params = route.is_a?(Array) ?
-          route[1].recognize(path) : 
-          route.recognize(path)
+        params = route[1].recognize(path)
         return params if params
       end
       nil

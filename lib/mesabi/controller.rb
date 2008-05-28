@@ -10,7 +10,7 @@ module Mesabi
     end
     
     def run(action)
-      response.body << send(action)
+      response.write send(action)
       response.finish
     end
     

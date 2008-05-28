@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rack'
-require 'mongrel'
+require 'thin'
 
 class Hello
   
@@ -10,4 +10,4 @@ class Hello
   
 end
 
-Rack::Handler::Mongrel.run(Hello.new)
+Rack::Handler::Thin.run(Hello.new)

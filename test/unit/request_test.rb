@@ -44,11 +44,17 @@ module Mesabi
         end
       end
 
-      context "with route params" do
+      context "with faked http method" do
         setup do
+          @env = mock_env("example.com/foo?_meth=delete", {:method => 'POST'})
+          @request = Request.new(@env)
         end
 
-        should_eventually "include route params in params"
+        should "identify fake http method" do
+          assert_equal('DELETE', @request.request_method)
+          assert @request.delete?
+          assert !@request.post?
+        end
       end
 
     end
