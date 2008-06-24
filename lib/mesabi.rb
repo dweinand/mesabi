@@ -24,15 +24,14 @@ module Mesabi #:nodoc:
     
     def call(env)
       request = Request.new(env)
-      if (params = route_map.recognize(request.path_info, request.request_method))
-       request.params.merge!(params)
-       controller = get_controller(params['controller']).new(request)
-       controller.run(params['action'])
+      params = route_map.recognize(request.path_info, request.request_method)
+      if params
+        request.params.merge!(params)
+        controller = get_controller(params['controller']).new(request)
+        controller.run(params['action'])
       else
         [404, {'content_type' => 'text/plain'}, ['Not Found']]
       end
-    # rescue
-    #   [200, {'content_type' => 'text/plain'}, [params.inspect]]
     end
     
     def build_routes(&block)
