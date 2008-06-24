@@ -14,6 +14,16 @@ module Mesabi
       response.finish
     end
     
+    def redirect_to(url)
+      response.status = 302
+      response[:location] = url
+      "<html><body>You are being <a href=\"#{url}\">redirected</a>.</body></html>"
+    end
+    
+    def params
+      request.params
+    end
+    
   end
   
 end

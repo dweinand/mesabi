@@ -1,5 +1,9 @@
-require 'test/unit'
 require 'rubygems'
+begin
+  gem 'test-unit'
+rescue LoadError
+end
+require 'test/unit'
 require 'shoulda'
 require 'benchmark'
 require File.join(File.dirname(__FILE__), '../lib/mesabi')
