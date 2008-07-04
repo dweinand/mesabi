@@ -13,9 +13,9 @@ module Mesabi
       self.routes << [nil, Route.new(path, options)]
     end
     
-    def recognize(path)
+    def recognize(path, meth)
       routes.each do |route|
-        params = route[1].recognize(path)
+        params = route[1].recognize(path, meth)
         return params if params
       end
       nil
