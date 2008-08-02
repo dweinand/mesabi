@@ -90,6 +90,67 @@ module Mesabi
         
       end
       
+      context "with restful routes" do
+        setup do
+          @route_map = RouteMap.new do |map|
+            map.resources("posts")
+          end
+        end
+
+        should "recognize index path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'index'
+          }, @route_map.recognize('posts', 'GET'))
+        end
+        
+        should "recognize show path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'show',
+            'id'         => '1'
+          }, @route_map.recognize('posts/1', 'GET'))
+        end
+        
+        should "recognize edit path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'edit',
+            'id'         => '1'
+          }, @route_map.recognize('posts/1/edit', 'GET'))
+        end
+        
+        should "recognize new path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'new'
+          }, @route_map.recognize('posts/new', 'GET'))
+        end
+        
+        should "recognize create path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'create'
+          }, @route_map.recognize('posts', 'POST'))
+        end
+        
+        should "recognize update path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'update',
+            'id'         => '1'
+          }, @route_map.recognize('posts/1', 'PUT'))
+        end
+        
+        should "recognize destroy path" do
+          assert_equal({
+            'controller' => 'posts',
+            'action'     => 'destroy',
+            'id'         => '1'
+          }, @route_map.recognize('posts/1', 'DELETE'))
+        end
+      end
+      
     end
     
   end

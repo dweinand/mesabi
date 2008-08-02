@@ -28,6 +28,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency "rake"
   s.add_dependency "rack"
   s.add_dependency "mime-types"
+  s.add_dependency "english"
   # Requirements
   s.required_ruby_version = ">= 1.8.4"
 end
