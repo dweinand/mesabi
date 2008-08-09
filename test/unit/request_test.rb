@@ -46,7 +46,7 @@ module Mesabi
 
       context "with faked http method" do
         setup do
-          @env = mock_env("example.com/foo?_meth=delete", {:method => 'POST'})
+          @env = mock_env("example.com/foo?_method=delete", {:method => 'POST'})
           @request = Request.new(@env)
         end
 

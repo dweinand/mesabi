@@ -43,8 +43,8 @@ module Mesabi
     end
     
     def faked_method
-      if params['_meth'] && FAKE_METHODS.include?(params['_meth'])
-        params['_meth'].upcase
+      if params['_method'] && FAKE_METHODS.include?(params['_method'])
+        params['_method'].upcase
       end
     end
     
