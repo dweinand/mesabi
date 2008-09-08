@@ -101,7 +101,7 @@ module Mesabi
           assert_equal({
             'controller' => 'posts',
             'action'     => 'index'
-          }, @route_map.recognize('posts', 'GET'))
+          }, @route_map.recognize('/posts', 'GET'))
         end
         
         should "recognize show path" do
@@ -109,7 +109,7 @@ module Mesabi
             'controller' => 'posts',
             'action'     => 'show',
             'id'         => '1'
-          }, @route_map.recognize('posts/1', 'GET'))
+          }, @route_map.recognize('/posts/1', 'GET'))
         end
         
         should "recognize edit path" do
@@ -117,21 +117,21 @@ module Mesabi
             'controller' => 'posts',
             'action'     => 'edit',
             'id'         => '1'
-          }, @route_map.recognize('posts/1/edit', 'GET'))
+          }, @route_map.recognize('/posts/1/edit', 'GET'))
         end
         
         should "recognize new path" do
           assert_equal({
             'controller' => 'posts',
             'action'     => 'new'
-          }, @route_map.recognize('posts/new', 'GET'))
+          }, @route_map.recognize('/posts/new', 'GET'))
         end
         
         should "recognize create path" do
           assert_equal({
             'controller' => 'posts',
             'action'     => 'create'
-          }, @route_map.recognize('posts', 'POST'))
+          }, @route_map.recognize('/posts', 'POST'))
         end
         
         should "recognize update path" do
@@ -139,7 +139,7 @@ module Mesabi
             'controller' => 'posts',
             'action'     => 'update',
             'id'         => '1'
-          }, @route_map.recognize('posts/1', 'PUT'))
+          }, @route_map.recognize('/posts/1', 'PUT'))
         end
         
         should "recognize destroy path" do
@@ -147,7 +147,7 @@ module Mesabi
             'controller' => 'posts',
             'action'     => 'destroy',
             'id'         => '1'
-          }, @route_map.recognize('posts/1', 'DELETE'))
+          }, @route_map.recognize('/posts/1', 'DELETE'))
         end
       end
       
